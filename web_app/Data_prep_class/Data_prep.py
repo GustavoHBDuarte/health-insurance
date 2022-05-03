@@ -140,7 +140,7 @@ class Data_prep(object):
         test_raw.loc[test_raw.index, 'Rank'] = predictions[:,1]
         
         # return data sorted by Rank
-        test_raw = test_raw.sort_values('Rank', ascending=False)
+        #test_raw = test_raw.sort_values('Rank', ascending=False)
         
         
         return test_raw.to_json(orient='records', date_format='iso')    
