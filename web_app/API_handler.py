@@ -29,7 +29,7 @@ def healthinsurance_predict():
     
    
     if test_json: # there is data
-        test_json = json.loads(test_json)
+       # test_json = json.loads(test_json)
         
         if isinstance( test_json, dict ): #test if the data is a request of only 1 row (will come as dict)
             test_raw = pd.DataFrame( test_json, index=[0] )
