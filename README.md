@@ -34,8 +34,6 @@ With this solution, the sales team hopes to be able to prioritize the people mos
 <ol>
   <li><font size="3">Finding the main insights about customers interested in vehicle insurance.</font></li>
 <br>
-  <li><font size="3">The reliability of the implemented machine learning model in classifying transactions as legitimate or fraudulent.</font></li>
-<br>
   <li><font size="3">What percentage of customers interested in purchasing vehicle insurance will the sales team be able to contact by making 20,000 calls?</font></li>
 <br>
   <li><font size="3">What if the sales team's capacity increases to 40,000 calls, what percentage of customers interested in purchasing vehicle insurance will the sales team be able to contact?.</font></li>
@@ -182,3 +180,197 @@ With this solution, the sales team hopes to be able to prioritize the people mos
   <li><font size="3">LightGBM</font></li>
   <li><font size="3">Extra Trees</font></li>    
 </ul>
+
+
+
+
+
+
+<h1>7- Machine Learning performance</h1>
+    
+    
+<br>    
+<table border="1">
+   <thead>
+   <tr>
+       <th><font size="3">Model name</font></th>
+       <th><font size="3">Precision at k CV</font></th>
+       <th><font size="3">Recall at k CV</font></th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr>
+       <td><font size="3">Random classifier (baseline)</font></td>
+       <td><font size="3">0.12 +/-0.01</font></td>
+       <td><font size="3">0.04 +/-0.0</font></td>
+   </tr>
+   <tr>
+       <td><font size="3">Logistic Regression</font></td>
+       <td><font size="3">0.25 +/-0.13</font></td>
+       <td><font size="3">0.08 +/-0.04</font></td>
+   </tr>
+          <tr>
+       <td><font size="3">Random Forest</font></td>
+       <td><font size="3">0.29 +/-0.12</font></td>
+       <td><font size="3">0.09 +/-0.04</font></td>
+   </tr>
+          <tr>
+       <td><font size="3">XGBoost</font></td>
+       <td><font size="3">0.32 +/-0.12</font></td>
+       <td><font size="3">0.1 +/-0.04</font></td>
+   </tr>
+          <tr>
+       <td><font size="3">LightGBM</font></td>
+       <td><font size="3">0.34 +/-0.11</font></td>
+       <td><font size="3">0.11 +/-0.04</font></td>              
+   <tr>
+       <td><font size="3">Extra Trees</font></td>
+       <td><font size="3">0.34 +/-0.1</font></td>
+       <td><font size="3">0.11 +/-0.03</font></td>
+</table>
+    
+    
+    
+<br>
+<p><font size="3">K-fold (number of splits=10) cross-validation provided replicates that allowed standard deviation calculation of each metric evaluated (Precision at k, Recall at k). Metrics at k are more reliable to apply as metrics measurement for ranking problems because it tell us how good the model is in ranking customers.</font></p><br>
+
+    
+  
+    
+    
+
+<br>
+    
+    
+    
+    
+
+<h1>8- Hyperparameter fine tuning</h1>
+
+<br>
+<p><font size="3">Model hyperparameters were adjusted via random search fine tuning in order to improve model performance.The following table shows the metrics for the LightGBM tuned model:</font></p>
+<br>
+
+<table border="1">
+   <thead>
+   <tr>
+       <th><font size="3">Model name</font></th>
+       <th><font size="3">Precision at k CV</font></th>
+   </thead>
+   <tbody>
+   <tr>
+       <td><font size="3">LightGBM</font></td>
+       <td><font size="3">0.428 +/-0.005</font></td>
+   </tr>         
+   </tbody>
+</table>
+
+<br>
+<p><font size="3">As expected fine tuning did not improve significantly model's performance. The following Cumulative Gain curve show us the benefits of using LighGBM model compared to a random baseline model. Adittionally, lift curve show us how better the machine learning model is in ranking interested customers depending on the percentage of sample compared to baseline model.</font>    
+<br>
+    
+    
+    
+<img src="https://drive.google.com/uc?export=view&id=1NHJ8D36Nqak4Dd3Y6T5SaDeNqLYYOrUh" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />    
+     
+    
+  
+<img src="https://drive.google.com/uc?export=view&id=1AQ6Q2sr6vM8RbIMquF0lHc4sX2MiDxUD" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />    
+     
+        
+
+
+<h1>9- Answering business questions</h1>
+
+    
+<br>
+<p><font size="3">Question 1: What percentage of customers interested in purchasing auto insurance will the sales team be able to reach by making 20,000 cals?</font></p>    
+
+
+
+<p><font size="3">Answer: According to Cumulative Gains curve 20,000 calls corresponds to 16% of our customers base (125766 customers total). The curve shows us that is possible to reach 48% of interested customers (7,398 customers). Lift curve shows us that our machine learning model is almost 3 times better than a baseline/random model at reaching interested customers.</font></p>      
+<br>    
+
+    
+<ul>
+  <li><font size="3">Number of calls: 20000</font></li>
+  <li><font size="3">Number of customers: 125766</font></li>
+  <li><font size="3">Percentage of sample: 0.16</font></li>
+  <li><font size="3">Percentage of interested customers reached: 0.48</font></li>
+  <li><font size="3">Total of interested customers in the base: 15414</font></li>
+  <li><font size="3">Total of interested customers reached by making 20000 calls: 7398</font></li>    
+</ul>    
+    
+<br>
+
+<img src="https://drive.google.com/uc?export=view&id=1lbC_QT9kc_z1K956j56abZgKn0ZoWFx5" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+    
+<br>
+
+<br>
+
+<img src="https://drive.google.com/uc?export=view&id=1uuq--1grsmzj4rpdY5ZOnzulCyKpbm7a" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+    
+<br>
+<p><font size="3">Question 2: What if the sales team's capacity increases to 40,000 calls, wha percentage of customers interested in purchasing auto insurance will the sales team be able to contact?</font></p>    
+
+
+
+<p><font size="3">Answer: According to Cumulative Gains curve 40,000 calls corresponds to 32% of our customers base (125766 customers total). The curve shows us that is possible to reach 82% of interested customers (12,647 customers). Lift curve shows us that our machine learning model is almost 2,7 times better than a baseline/random model at reaching interested customers.</font></p>      
+<br>    
+
+    
+<ul>
+  <li><font size="3">Number of calls: 40000</font></li>
+  <li><font size="3">Number of customers: 125766</font></li>
+  <li><font size="3">Percentage of sample: 0.32</font></li>
+  <li><font size="3">Percentage of interested customers reached: 0.82</font></li>
+  <li><font size="3">Total of interested customers in the base: 15414</font></li>
+  <li><font size="3">Total of interested customers reached by making 40000 calls: 12647</font></li>    
+</ul>    
+    
+<br>
+
+<img src="https://drive.google.com/uc?export=view&id=12Th7dUcuXTnkp4orq55vynp4VkR29M6u" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+    
+<br>
+
+<br>
+
+<img src="https://drive.google.com/uc?export=view&id=1gVUCjhyfZDS4atO2JWtT5QJtE3xszQ0S" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />    
+    
+    
+    
+<br>
+<p><font size="3">Question 3: How many calls does the sales team need to make to reach 80% of the customers interested in purchasing auto insurance?</font></p>    
+
+
+
+<p><font size="3">Answer: 38,480 calls.</font></p>      
+<br>    
+
+    
+<ul>
+  <li><font size="3">Number of calls: 38480</font></li>
+  <li><font size="3">Number of customers: 125766</font></li>
+  <li><font size="3">Percentage of sample: 0.31</font></li>
+  <li><font size="3">Percentage of interested customers reached: 0.80</font></li>
+  <li><font size="3">Total of interested customers in the base: 15414</font></li>
+  <li><font size="3">Total of interested customers reached by making 38480 calls: 12332</font></li>    
+</ul>    
+    
+<br>
+
+<img src="https://drive.google.com/uc?export=view&id=1_rfH1ZuA-4qO22qXaTVbTL9HQ9SWwAVJ" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+    
+<br>
+
+<br>
+
+<img src="https://drive.google.com/uc?export=view&id=1f_JykpyMOgCBo2J1R_3a_RS-IKG6dXob" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />        
+    
+    
