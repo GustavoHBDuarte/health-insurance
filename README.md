@@ -55,7 +55,7 @@ With this solution, the sales team hopes to be able to prioritize the people mos
 <h1>2- Assumptions</h1>
 
 <br>
-<p><font size="3">For the purpose of the development, model implementation and business we will be assuming the hiring client reaches out potential customers making random calls.</font></p></br>
+<p><font size="3">For the purpose of the development, model implementation and business we will be assuming the hiring client reaches out potential customers by making random calls.</font></p></br>
 
 
 
