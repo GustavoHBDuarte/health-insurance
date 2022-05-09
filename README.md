@@ -374,3 +374,40 @@ With this solution, the sales team hopes to be able to prioritize the people mos
 <img src="https://drive.google.com/uc?export=view&id=1f_JykpyMOgCBo2J1R_3a_RS-IKG6dXob" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />        
     
     
+    
+<br>
+    
+    
+
+<h1>10- Model deployment</h1>
+
+<br>
+
+<ul>
+  <li><font size="3">Machine learning model was successfully deployed on Heroku cloud. Predictions can be acessed using the following endpoint: <a href="https://health-insurance-gustavo.herokuapp.com/healthinsurance/predict">https://health-insurance-gustavo.herokuapp.com/healthinsurance/predict</a>.</font>
+      
+<font size="3">In the following image it is possible to see that there is a Google Sheets spreadsheet with a newly created button called "Health Insurance". In this button the user can click on "get predictions" to obtain the probability of each customer to be interested in vehicle insurance (score).</font>
+</ul>    
+    
+<br>
+
+<img src="https://drive.google.com/uc?export=view&id=1-wT69zWEbvs5idXKg-_Qt-GVx-drgv7L" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />        
+    
+    
+    
+<br>
+  
+    
+    
+    
+    
+
+<h1>11- Conclusions</h1>
+
+<br>
+<p><font size="3">This project aimed to show that it is possible to, starting from a dataset containing information about customers that might be interested in a new product, train a estimator that is able to rank new customers more likely to be interested in this same product. This represents a valuable resource not only for marketing team, that can reach out customers more assertively compared to randomly call to customers, but also for the company as a whole due to increase of conversion rate since the more interested customers are being contacted. The availability of model predictions in Google Sheets spreadsheets makes is intended to work as a shortcut making the decision making step for non-technical people easier and faster. The integration between the solution building to the final product represents the power of Data Science techniques in solving real world problems.</font></p>
+<br>
+
+    
+    
+
