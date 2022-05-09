@@ -49,3 +49,136 @@ With this solution, the sales team hopes to be able to prioritize the people mos
 
 
 <p><font size="3">Datasets used in this project can be downloaded <a href="https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction">here</a>.</font></p>
+
+
+
+
+
+<h1>2- Assumptions</h1>
+
+<br>
+<p><font size="3">For the purpose of the development, model implementation and business we will be assuming the hiring client reaches out potential customers making random calls.</font></p></br>
+
+
+
+
+
+
+<h1>3- Data description</h1>
+
+<br>
+  <font size="3">Each row represents a customer and each column contains some attributes that describe that customer, in addition to the survey response, in which they mentioned interest or not in the new insurance product. The dataset used to build the solution has the following attributes:</font></li>
+<br>
+<br>
+<ul>
+  <li><font size="3"><b>id - </b>Unique ID for the customer.</font></li><br>
+  <li><font size="3"><b>Gender - </b>Gender of the customer.</font></li><br>
+  <li><font size="3"><b>Age - </b>Age of the customer.</font></li><br>
+  <li><font size="3"><b>Driving_License - </b>0 : Customer does not have DL, 1 : Customer already has DL.</font></li><br>
+  <li><font size="3"><b>Region_Code - </b>Unique code for the region of the customer.</font></li><br>
+  <li><font size="3"><b>Previously_Insured - </b>1 : Customer already has Vehicle Insurance, 0 : Customer doesn't have Vehicle Insurance.</font></li><br>
+  <li><font size="3"><b>Vehicle_Age - </b>Age of the Vehicle.</font></li><br>
+  <li><font size="3"><b>Vehicle_Damage - </b>1 : Customer got his/her vehicle damaged in the past. 0 : Customer didn't get his/her vehicle damaged in the past.</font></li><br>
+  <li><font size="3"><b>Annual_Premium - </b>The amount customer needs to pay as premium in the year.</font></li><br>
+  <li><font size="3"><b>PolicySalesChannel - </b>Anonymized Code for the channel of outreaching to the customer ie. Different Agents, Over Mail, Over Phone, In Person, etc.</font></li><br>
+    <li><font size="3"><b>Vintage - </b>Number of Days, Customer has been associated with the company.</font></li><br>
+  <li><font size="3"><b>Response - </b>1 : Customer is interested, 0 : Customer is not interested.</font></li><br>
+</ul>
+
+
+
+
+
+
+
+
+<h1>4- Solution strategy</h1>
+
+<br>
+<ol>
+  <li><font size="3"><b>Understanding the business and problems to be solved:</b> already described.</font></li>
+<br>
+  <li><font size="3"><b>Data colection:</b> downloading the corresponding .csv files from <a href="https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction">Kaggle</a> plattform or in our notebook's resoluting we will be colecting data via SQL queries.</font></li>
+<br>
+  <li><font size="3"><b>Data cleaning:</b> basic search for missing values, outliers and inconsistencies to make data suitable for further analysis. Adittionally a basic inspection including descriptive statistics (mean, standard deviation, range, skewness and kurtosis) should be also carried out.</font></li>
+<br>
+  <li><font size="3"><b>Feature engineering:</b> creating new features from the existing ones to assist in both exploratory data analysis (EDA) and machine learning modelling.</font></li>
+<br>
+  <li><font size="3"><b>Data filtering and selection:</b>  reducing the data based on business assumptions and constraints to make training set as close as possible to data in production.</font></li>
+<br>
+  <li><font size="3"><b>EDA:</b> exploring data to search for interesting insights and understand the impact of the features on the target variable (sales).</font></li>
+<br>
+  <li><font size="3"><b>Data preparation:</b> splitting the data into train/test sets and applying them scaling, encoding and transformation methods to make data suitable to machine learning.</font></li>
+<br>
+  <li><font size="3"><b>Feature selection:</b> selecting the most relevant attributes based on EDA results and suitable algorithm to maximize machine learning performance.</font></li>
+<br>
+  <li><font size="3"><b>Machine learning:</b> evaluating different algorithms and compare their results based on cross-validation. For the sake of this step a good candidate algorithm should perform better than the random baseline estimator.</font></li>
+<br>
+  <li><font size="3"><b>Hiperparameter fine tuning:</b> randomly test different hyperparameter values in order to find some combination that improves model performance.</font></li>
+<br>
+  <li><font size="3"><b>Error interpretation:</b> after choosing the best performing model, in the next step model performance needs to be translated to business results.</font></li>
+<br>
+  <li><font size="3"><b>Model deployment:</b> deploying the machine learning model to cloud environment so predictions can be accessed via API requests in Google Sheets.</font></li>
+<br>  
+</ol>
+
+
+
+
+
+
+
+<h1>5- Main insights</h1>
+
+<br>
+<p><font size="3">- People in the adult group had their vehicle damaged more often. 
+    <br>Answer: <b>FALSE</b>. People in the middle age adult group had their vehicle damaged more often.</font></p>
+
+<img src="https://drive.google.com/uc?export=view&id=1XOu2IgYemQ1KRf54It_EfETL9K5pKTlB" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+
+<br>
+    
+
+<br>    
+<br>
+<p><font size="3">- People with newer vehicles (vehicle_age less than 1 Year) are more interested in purchasing vehicle insurance. 
+    <br>Answer: <b>FALSE</b>. Most of interested people have their cair aged between 1-2 year.</font></p>
+
+
+
+<img src="https://drive.google.com/uc?export=view&id=1Li5FdwEFPoTE2xhbKTSdzGD_uFt8ytOg" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+    
+    
+    
+<br>
+<p><font size="3">- People who have had their vehicle damaged (vehicle_damage = Yes) are more interested in purchasing vehicle insurance. 
+    <br>Answer: <b>TRUE</b>.  Most of interested people had their cars damaged before.</font></p>
+
+<img src="https://drive.google.com/uc?export=view&id=1Y2YkSC56o3e8BC1842UvIKTuoliagOhv" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+
+    
+     
+    
+    
+<br>    
+<p><font size="3">Other hypothesis raised, as well as other insights can be checked out in the main notebook.</font></p>     
+    
+    
+    
+    
+<h1>6- Machine Learning models</h1>
+
+<br>
+<p><font size="3">Models evaluated:</font></p>
+
+
+<ul>
+  <li><font size="3">Dummy Random model (baseline)</font></li>
+  <li><font size="3">Logistic Regression</font></li>
+  <li><font size="3">Balanced Random Forest</font></li>
+  <li><font size="3">XGBoost</font></li>
+  <li><font size="3">LightGBM</font></li>
+  <li><font size="3">Extra Trees</font></li>    
+</ul>
