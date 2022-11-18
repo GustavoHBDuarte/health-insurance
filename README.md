@@ -141,7 +141,7 @@ With this solution, the sales team hopes to be able to prioritize the people mos
 <br>    
 <br>
 <p><font size="3">- People with newer vehicles (vehicle_age less than 1 Year) are more interested in purchasing vehicle insurance. 
-    <br>Answer: <b>FALSE</b>. Most of interested people have their cair aged between 1-2 year.</font></p>
+    <br>Answer: <b>FALSE</b>. Most of interested people have their car aged between 1-2 year.</font></p>
 
 
 
