@@ -266,7 +266,7 @@ With this solution, the sales team hopes to be able to prioritize the people mos
 </table>
 
 <br>
-<p><font size="3">As expected fine tuning did not improve significantly model's performance. The following Cumulative Gain curve show us the benefits of using LighGBM model compared to a random baseline model. Adittionally, lift curve show us how better the machine learning model is in ranking interested customers depending on the percentage of sample compared to baseline model.</font>    
+<p><font size="3">As expected fine tuning did not improve significantly model's performance. The following Cumulative Gain curve show us the benefits of using LightGBM model compared to a random baseline model. Adittionally, lift curve show us how better the machine learning model is in ranking interested customers depending on the percentage of sample compared to baseline model.</font>    
 <br>
     
     
